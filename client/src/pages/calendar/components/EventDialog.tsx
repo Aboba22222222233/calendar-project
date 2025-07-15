@@ -50,46 +50,59 @@ export function EventDialog({ isOpen, onClose, selectedDate, onEventAdd }: Event
 
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="sm:max-w-[500px] glass-card border-0 shadow-2xl">
         <DialogHeader>
-          <DialogTitle>
+          <DialogTitle className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             Add Event {selectedDate && `- ${format(selectedDate, 'MMMM d, yyyy')}`}
           </DialogTitle>
         </DialogHeader>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-6">
           <div className="space-y-2">
-            <Label htmlFor="title">Event Title</Label>
+            <Label htmlFor="title" className="text-base font-semibold">Event Title</Label>
             <Input
               id="title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               placeholder="Enter event title"
               required
+              className="glass-card border-0 text-base py-3"
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="time">Time</Label>
+            <Label htmlFor="time" className="text-base font-semibold">Time</Label>
             <Input
               id="time"
               type="time"
               value={time}
               onChange={(e) => setTime(e.target.value)}
+              className="glass-card border-0 text-base py-3"
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="description">Description</Label>
+            <Label htmlFor="description" className="text-base font-semibold">Description</Label>
             <Input
               id="description"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               placeholder="Enter event description (optional)"
+              className="glass-card border-0 text-base py-3"
             />
           </div>
-          <DialogFooter>
-            <Button type="button" variant="outline" onClick={handleClose}>
+          <DialogFooter className="gap-3">
+            <Button 
+              type="button" 
+              variant="outline" 
+              onClick={handleClose}
+              className="glass-card border-0 hover:scale-105 transition-transform"
+            >
               Cancel
             </Button>
-            <Button type="submit">Add Event</Button>
+            <Button 
+              type="submit"
+              className="gradient-button border-0 hover:scale-105 transition-transform"
+            >
+              Add Event
+            </Button>
           </DialogFooter>
         </form>
       </DialogContent>
