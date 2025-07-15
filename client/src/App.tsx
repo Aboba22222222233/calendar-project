@@ -1,14 +1,17 @@
 import * as React from 'react';
-import { Button } from '@/components/ui/button';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { CalendarPage } from './pages/calendar/CalendarPage';
 
-// Extract the error message
 function App() {
   return (
-    <div className="min-h-screen">
-      <div className="container mx-auto px-4 py-8">
-        <h1 className="text-4xl font-bold">Instance starter</h1>
+    <Router>
+      <div className="min-h-screen bg-background">
+        <Routes>
+          <Route path="/" element={<CalendarPage />} />
+          <Route path="/calendar" element={<CalendarPage />} />
+        </Routes>
       </div>
-    </div>
+    </Router>
   );
 }
 
